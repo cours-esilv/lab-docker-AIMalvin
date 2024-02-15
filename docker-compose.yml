@@ -6,6 +6,8 @@ services:
       - "5000:5000"
     environment:
       CURRENT_ENVIRONMENT: development
+    volumes:
+      - back-data:/app/data  # Example volume mount
 
   front:
     image: aimalvin/myapp-front:latest
@@ -13,3 +15,6 @@ services:
       - "80:80"
     environment:
       WS_BACK_URL: "http://host.docker.internal:5000"
+
+volumes:
+  back-data:  # Define the volume
